@@ -28,9 +28,13 @@ mamba create -c conda-forge -c bioconda -n snakemake snakemake
 conda activate snakemake
 ```
 
-
 ## Running and building whole project
 
-`snakemake -c all`
+`$ snakemake -c all`
 
+## Data to start 
 
+Download from link provided file: `data-tostart.tgz` and untar into the project.
+
+`$ tar xzvf data-tostart.tgz`
+`$ mv data-tostart  data`
