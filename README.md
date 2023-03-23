@@ -10,11 +10,11 @@ Authors: Jose Maria Zamora-Fuentes, Jesus Espinal-Enriquez, Enrique Hernandez-Le
 
 Considerations:
 
-- R (3.6.3)
+- R (4.2.2)
 
 Pre-requisites to run scripts in theses paheses are obtained with:
 
-`$ Rscript pkgs-requiremnts.R`
+`$ Rscript R/install-pkgs.R`
 
 ### CONDA
 
