@@ -1,6 +1,8 @@
 # ch3m
 .vscode
-data-tostart*
+data
+data-tostart
+.DS_Store
 
 # History files
 .Rhistory

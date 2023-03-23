@@ -37,4 +37,5 @@ conda activate snakemake
 Download from link provided file: `data-tostart.tgz` and untar into the project.
 
 `$ tar xzvf data-tostart.tgz`
+
 `$ mv data-tostart  data`

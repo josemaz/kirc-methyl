@@ -132,21 +132,24 @@ rule onco_tsg_db:
 
 rule nets_enrich:
     input:
-        expand("data/tables/MI/{etapa}-{cut}.sif", etapa=ALLGR, cut=CUTSMI)
-    output: 
-        "data/tables/nets/{cutmi}/Over-Hypo-Stage4-net.tsv"
-    shell:
-        "Rscript R/13-nets.R {wildcards.cutmi}"
+        expand("data/tables/MI/{etapa}-{cut}.sif", etapa=ALLGR, cut=CUTSMI),
+        "data/tables/onco-tsg-db.tsv"
+    output:
+        # Only a hack
+        expand("data/tables/nets/{cut}/Over-Hypo-Stage1-net.tsv", cut=CUTSMI)
+    run:
+        for c in CUTSMI:
+             shell("Rscript R/13-nets.R " + c)
 
-rule paper:
-    input: "docs/paper.Rmd"
-    output: "docs/paper.pdf"        
-    shell: "cd docs; Rscript -e \"rmarkdown::render('paper.Rmd')\""
+# rule paper:
+#     input: "docs/paper.Rmd"
+#     output: "docs/paper.pdf"        
+#     shell: "cd docs; Rscript -e \"rmarkdown::render('paper.Rmd')\""
 
 rule all:
     input:
-        "data/plots/bootstrap-samples-dms/hyper-CpGs.png", # vital
-        "data/plots/meth-stats/meandesc.png", # vital
+        "data/plots/bootstrap-samples-dms/hyper-CpGs.png", 
+        "data/plots/meth-stats/meandesc.png", 
         expand("data/plots/meth-volcanos/NTvs{etapa}.png", etapa=ETAPAS),
-        expand('data/tables/nets/{cutmi}/Over-Hypo-Stage4-net.tsv', cutmi=CUTSMI),
+        expand("data/tables/nets/{cut}/Over-Hypo-Stage1-net.tsv", cut=CUTSMI),
         "data/tables/onco-tsg-db.tsv"
