@@ -12,7 +12,9 @@ Considerations:
 
 - R (4.2.2)
 
-Pre-requisites to run scripts in theses paheses are obtained with:
+Don't forget setting R_LIBS_USER variable to install personal packages. 
+
+To install pre-requisites to run scripts:
 
 `$ Rscript R/install-pkgs.R`
 
@@ -34,7 +36,7 @@ conda activate snakemake
 
 ## Data to start 
 
-Download from link provided file: `data-tostart.tgz` and untar into the project.
+Download file from link provided: `data-tostart.tgz` and untar into the project.
 
 `$ tar xzvf data-tostart.tgz`
 
