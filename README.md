@@ -30,7 +30,7 @@ conda activate snakemake
 
 ## Running and building whole project
 
-`$ snakemake -c all`
+`$ snakemake -c all rule_name`
 
 ## Data to start 
 
