@@ -10,7 +10,7 @@ require("crayon")
 # System Packages
 packs <- c("UpSetR", "BiocManager", "DT", "tidyverse", "devtools", 
            "VennDiagram", "ggfortify", "gprofiler2", "cowplot",
-           "tictoc", "openxlsx", "ggvenn", "igraph")
+           "tictoc", "openxlsx", "ggvenn", "igraph", "doParallel")
 noinst <- setdiff(packs, rownames(installed.packages()))
 cat(red(noinst) %+% '\n')
 install.packages(noinst)
