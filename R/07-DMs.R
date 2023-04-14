@@ -2,6 +2,8 @@ suppressWarnings(require(TCGAbiolinks))
 suppressWarnings(require(SummarizedExperiment))
 suppressWarnings(require(crayon))
 suppressWarnings(require(tictoc))
+suppressWarnings(require(xtable))
+
 source("R/libtools.R")
 
 
@@ -28,7 +30,9 @@ rownames(grnas) <- rowData(rnas)$gene_name
 
 #! GENERA LOS RESULTADOS DE METILACION DIFERENCIAL
 dems <- list()
+tabla = data.frame(contraste=character(),nhypo=integer(),nhyper=integer())
 for (contra in names(gdegs$up)){
+    # contra <- "NT_Stage1"
     tic(paste("Time:",contra))
     gr1name = unlist(strsplit(contra,"_"))[1]
     gr2name = unlist(strsplit(contra,"_"))[2]
@@ -42,8 +46,11 @@ for (contra in names(gdegs$up)){
                 cores = parallel::detectCores())
     print(head(plt))
     dems[[contra]] <- plt
+    newrow = c(contra, length(grep("^Hypo",plt$status)) , length(grep("^Hyper",plt$status)))
+    tabla[nrow(tabla) + 1,] = newrow
     toc()
 }
+xtable(tabla)
 saveRDS(dems, file = "data/RDS/dms.rds")
 
 
