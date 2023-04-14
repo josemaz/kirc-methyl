@@ -16,7 +16,7 @@ cat(red(noinst) %+% '\n')
 install.packages(noinst)
 # Bioconductor Packages
 packs <- c("TCGAbiolinks", "EDASeq", "edgeR", "EnhancedVolcano",
-           "sva", "NOISeq","biomaRt", "DESeq2")
+           "sva", "NOISeq","biomaRt", "DESeq2", "ComplexHeatmap")
 noinst <- setdiff(packs, rownames(installed.packages()))
 cat(red(noinst) %+% '\n')
 BiocManager::install(noinst)
