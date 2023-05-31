@@ -38,10 +38,11 @@ conda activate snakemake
 
 `$ snakemake -c all rule_name`
 
-## Data to start 
+## Dataset to start 
 
-Download file from link provided: `data-tostart.tgz` and untar into the project.
+Download file from link provided: `https://zenodo.org/record/7988316#.ZHbSrOzMKrx` and untar into the project.
 
-`$ tar xzvf data-tostart.tgz`
-
-`$ mv data-tostart  data`
+```
+tar xzvf data-tostart.tgz
+mv data-tostart  data
+```
